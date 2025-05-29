@@ -1,0 +1,160 @@
+/* src/components/GroupComponent/GroupComponent.module.css */
+.groupContainer {
+    padding: 15px;
+    margin: 0 0 10px 0; /* Отступ для группы в списке */
+    border-width: 3px;
+    border-style: solid;
+    border-radius: 8px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: border-color 0.2s ease, background-color 0.3s ease, opacity 0.3s ease;
+}
+
+.groupAnd {
+    border-color: royalblue;
+}
+.groupOr {
+    border-color: mediumseagreen;
+}
+
+.groupContainer.overlay {
+    margin: 0;
+    background-color: #d0e0f0; /* Светлее для оверлея группы */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.25);
+}
+
+.groupContainer.disabledVisuals {
+    background-color: #e9ecef !important; /* Переопределяем, чтобы было видно */
+    opacity: 0.6;
+    border-color: #ced4da !important;
+}
+.groupContainer.disabledVisuals .groupName {
+    color: #6c757d !important;
+}
+
+
+.groupContainer.lockedVisuals {
+    background-color: #f8f9fa;
+    /* Можно добавить иконку замка или другие визуальные эффекты */
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #dee2e6;
+    gap: 15px; /* Пространство между именем и контролами */
+}
+
+.nameSection {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-grow: 1; /* Чтобы имя занимало доступное пространство */
+    min-width: 150px; /* Чтобы инпут не был слишком узким */
+}
+
+.groupName {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    word-break: break-word;
+}
+.groupAnd .groupName { color: royalblue; }
+.groupOr .groupName { color: mediumseagreen; }
+.groupContainer.disabledVisuals .groupName:hover {
+    cursor: default;
+}
+
+
+.nameInput {
+    padding: 8px;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    font-size: 16px;
+    flex-grow: 1;
+}
+
+.controlsSection {
+    display: flex;
+    align-items: center;
+    gap: 6px; /* Уменьшил gap для кнопок */
+    flex-shrink: 0;
+}
+
+.button {
+    padding: 7px 10px;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: #f8f8f8;
+    font-size: 12px; /* Уменьшил шрифт кнопок */
+    min-width: 50px; /* Уменьшил мин. ширину */
+    text-align: center;
+    transition: background-color 0.2s ease;
+    white-space: nowrap;
+}
+.button:hover:not(:disabled) {
+    background-color: #e7e7e7;
+}
+.button:disabled {
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.saveNameButton {
+    background-color: #5cb85c;
+    color: white;
+    border-color: #4cae4c;
+}
+
+.lockButton { background-color: #ffc107; border-color: #f8b300; }
+.unlockButton { background-color: lightcoral; border-color: #e74c3c; color: white; }
+
+.disableButton { background-color: #17a2b8; border-color: #138496; color: white; }
+.enableButton { background-color: #6c757d; border-color: #5a6268; color: white; }
+
+.deleteGroupButton { background-color: #dc3545; border-color: #d43f3a; color: white; }
+
+
+.childrenContainer {
+    min-height: 60px;
+    padding: 10px 0;
+    border: 2px dashed transparent;
+    border-radius: 4px;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+.groupAnd .childrenContainerOver { border-color: darkorange; background-color: rgba(255,140,0,0.05); }
+.groupOr .childrenContainerOver { border-color: yellowgreen; background-color: rgba(154,205,50,0.05); }
+
+
+.dropPlaceholder {
+    height: 40px;
+    border: 1px dashed #aaa;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #aaa;
+    margin: 8px 0;
+    font-size: 13px;
+}
+
+.addButtonsContainer {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #dee2e6;
+    display: flex;
+    justify-content: flex-start;
+    gap: 8px;
+}
+.addButtonsContainer.disabledVisuals { /* Если сама группа disabled, кнопки добавления тоже */
+    opacity: 0.5;
+}
+
+
+.addFilterButton { background-color: #28a745; color: white; border-color: #1e7e34;}
+.addSubgroupButton { background-color: #007bff; color: white; border-color: #0069d9;}
