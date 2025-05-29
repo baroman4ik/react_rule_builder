@@ -39,42 +39,56 @@ import styles from './RuleBuilder.module.css';
 
 const initialData: GroupType = {
   id: uuidv4(),
-  type: 'GROUP',
-  name: 'Корневая группа',
-  logic: 'AND',
+  type: "GROUP",
+  name: "Корневая группа",
+  logic: "AND",
   isLocked: false,
   isDisabled: false,
   isCollapsed: false,
-  children: [
-  ],
+  children: [],
 };
 initialData.children.push(
   {
     id: uuidv4(),
-    type: 'GROUP',
-    name: 'Подгруппа 1',
-    logic: 'OR',
+    type: "GROUP",
+    name: "Подгруппа 1",
+    logic: "OR",
     isLocked: false,
     isDisabled: false,
     isCollapsed: false,
     children: [
-      { ...createNewFilter(), field: 'birth_date', operator: 'is after', value: '1990-01-01' },
-      { ...createNewFilter(), field: 'channel', operator: 'equals', value: 'email' },
+      {
+        ...createNewFilter(),
+        field: "birth_date",
+        operator: "is after",
+        value: "2077-01-01",
+      },
+      {
+        ...createNewFilter(),
+        field: "channel",
+        operator: "equals",
+        value: "email",
+      },
     ],
   } as GroupType,
   {
     id: uuidv4(),
-    type: 'GROUP',
-    name: 'Подгруппа 2 (отключена)',
-    logic: 'AND',
+    type: "GROUP",
+    name: "Подгруппа 2 (отключена)",
+    logic: "AND",
     isLocked: false,
     isDisabled: true,
     isCollapsed: false,
     children: [
-      { ...createNewFilter(), field: 'city', operator: 'equals', value: 'London' }
+      {
+        ...createNewFilter(),
+        field: "city",
+        operator: "equals",
+        value: "MOSKVA",
+      },
     ],
   } as GroupType,
-  { ...createNewFilter(), field: 'name', operator: 'contains', value: 'John' }
+  { ...createNewFilter(), field: "name", operator: "contains", value: "Roma" }
 );
 
 
